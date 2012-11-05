@@ -8,7 +8,7 @@ http://www.ecoris.co.jp/contents/demtool.html
 
 
 コンパイル
-gcc -I/usr/local/include/ -L/usr/local/lib dem.cpp /usr/local/lib/libgdal.so -o xmldem
+gcc -I/usr/local/include/ -L/usr/local/lib dem_linux.cpp /usr/local/lib/libgdal.so -o xmldem
 
 実行
 ./xmldem filename nodetaflag
