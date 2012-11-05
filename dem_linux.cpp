@@ -1,5 +1,5 @@
 /*
-gcc -I/usr/local/include/ -L/usr/local/lib dem.cpp /usr/local/lib/libgdal.so -o xmldem
+gcc -I/usr/local/include/ -L/usr/local/lib dem_linux.cpp /usr/local/lib/libgdal.so -o xmldem
 for i in *.xml ; do ../xmldem $i 1 ; mv *.tif ../demtif/ ; done
 */
 

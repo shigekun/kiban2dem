@@ -1,9 +1,14 @@
+3次メッシュのDEMを
+・DEM5A、DEM5K、DEM5Bの優先度でマージしたり
+・2次メッシュにしたり
+
 cd work/dem/dem5m/
 
 3rd  225x 150
 2nd 2250x1500
 
 
+// 同じ場所は後勝ち
 gdalwarp -overwrite -dstnodata -9999 -of GTiff -ot Float32 -co "COMPRESS=LZW" \
 FG-GML-5339-12-34-DEM5B-20110118.tif \
 FG-GML-5339-12-34-DEM5K-20100225.tif \
@@ -11,7 +16,7 @@ FG-GML-5339-12-34-DEM5K-20100326.tif \
 53391234.tif
 
 mkdir sh
-
+// 上のスクリプトを作るスクリプト
 echo "gdalwarp -overwrite -dstnodata -9999 -of GTiff -ot Float32 -co "COMPRESS=LZW" \\" > 533912.sh
 psql -d testdb -c "select 'demtif/' || name || ' \\' from dem5m3rd where arr[10]='533912' order by arr[12] desc,arr[8];" -t -A >> 533912.sh
 echo " 533912.tif" >> 533912.sh
